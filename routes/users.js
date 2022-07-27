@@ -17,4 +17,17 @@ router.post("/post-message", (req, res) => {
   }
 });
 
+const postUserData = async (userData) => {
+  const url = `${urlEndpoint}/create-user`
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
+  const responseJSON = await response.json();
+  setUserUpdateResponse(responseJSON);
+};
+
 module.exports = router;
