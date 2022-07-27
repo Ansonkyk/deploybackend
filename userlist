@@ -1,0 +1,6 @@
+const userList = [{
+        id: 1,
+        firstName: "John",
+        lastName: "Doe",
+        email: "jd@gmail.com"
+      }];
