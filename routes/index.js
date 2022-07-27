@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+const userList = [{
+      id: 1,
+      firstName: "John",
+      lastName: "Doe",
+      email: "jd@gmail.com"
+    }];
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -16,5 +23,10 @@ router.post("/post-message", (req, res) => {
     res.json({ serverMessage: error }).status(400);
   }
 });
+
+router.get("/get-users", (req,res) => {
+  res.json(userList)
+})
+
 
 module.exports = router;
