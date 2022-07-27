@@ -24,9 +24,29 @@ router.post("/post-message", (req, res) => {
   }
 });
 
+
 router.get("/get-users", (req,res) => {
   res.json(userList)
 })
 
+
+
+router.post("/create-user", (req, res) => {
+  try {
+    const firstName = req.body.firstName
+    const lastName = req.body.lastName
+    const email = req.body.email
+    const newUser = {
+      id,
+      firstName,
+      lastName,
+      email
+    }
+    userList.push(newUser)
+    res.json({ serverMessage: success }).status(200);
+  } catch (error) {
+    res.json({ serverMessage: error }).status(400);
+  }
+});
 
 module.exports = router;
